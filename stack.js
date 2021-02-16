@@ -19,38 +19,38 @@ if (str === rstr) {
 
 //Stacks with Objects
 //functions: push, pop, peek, size
-const stack = function () {
-  this.data = {};
+function Stack() {
+  this.storage = {};
   this.size = -1;
 
   this.push = (value) => {
     this.size++;
-    this.data[this.size] = value;
+    this.storage[this.size] = value;
   };
 
   this.pop = () => {
     if (this.size === -1) {
       return undefined;
     }
-    const result = this.data[this.size];
-    delete this.data[this.size];
+    const result = this.storage[this.size];
+    delete this.storage[this.size];
     this.size--;
     return result;
   };
 
   this.peek = () => {
-    return this.data[this.size];
+    return this.storage[this.size];
   };
 
   this.length = () => {
     return this.size;
   };
-};
+}
 
 const word = "racecar";
 let rword = "";
 
-let letters = new stack();
+let letters = new Stack();
 
 for (let i = 0; i < word.length; i++) {
   letters.push(word[i]);
